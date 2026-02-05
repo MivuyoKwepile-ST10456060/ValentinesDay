@@ -4,14 +4,14 @@ const response = document.getElementById("response");
 const letterPage = document.getElementById("letterPage");
 const finalPage = document.getElementById("finalPage");
 
-// No button impossible
+// Make NO button impossible to click
 function moveNoButton() {
     noBtn.style.left = Math.random() * 70 + "%";
     noBtn.style.top = Math.random() * 50 + "%";
 }
 noBtn.addEventListener("mouseover", moveNoButton);
 noBtn.addEventListener("touchstart", moveNoButton);
-noBtn.addEventListener("click", e=>{ e.preventDefault(); moveNoButton(); });
+noBtn.addEventListener("click", e => { e.preventDefault(); moveNoButton(); });
 
 // Emoji rain
 function emojiRain() {
