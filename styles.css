@@ -1,173 +1,82 @@
 /* Global */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
-    color: #fff;
-    font-family: "Georgia", serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+    color:#fff;
+    font-family:"Georgia", serif;
+    background: radial-gradient(circle at center,#ff0000 0%,#ff7f00 15%,#ffff00 30%,#00ff00 45%,#0000ff 60%,#4b0082 75%,#8b00ff 90%);
+    background-size:400% 400%;
+    animation: rainbowShift 30s ease infinite;
 }
+@keyframes rainbowShift {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
 /* Floating hearts */
-.floating-hearts::before {
-    content: "💖 💕 💘 💝 ❤️";
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: -10%;
-    font-size: 28px;
-    animation: floatDown 7s linear infinite;
-    opacity: 0.8;
+.floating-hearts::before{
+    content:"❤️ 💧 🍑 💘 💝 😍 🍆 👅 👩‍❤️‍💋‍👩";
+    position:absolute; width:100%; text-align:center; top:-10%; font-size:28px; animation:floatDown 7s linear infinite; opacity:0.8;
 }
-@keyframes floatDown {
-    to { transform: translateY(120vh); opacity:0; }
+@keyframes floatDown{to{transform:translateY(120vh);opacity:0;}}
+
+/* Letter */
+.envelope{
+    width:90%; max-width:440px;
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(12px);
+    border-radius:26px; padding:30px;
+    box-shadow:0 25px 55px rgba(0,0,0,0.25);
+    animation:fadeIn 1.6s ease forwards;
 }
-
-/* Letter page */
-.envelope {
-    width: 90%;
-    max-width: 440px;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(12px);
-    border-radius: 26px;
-    padding: 30px;
-    box-shadow: 0 25px 55px rgba(0,0,0,0.25);
-    animation: fadeIn 1.6s ease forwards;
-}
-@keyframes fadeIn {
-    from {opacity:0; transform: translateY(30px) scale(0.95);}
-    to {opacity:1; transform: translateY(0) scale(1);}
-}
-
-.letter { text-align: center; }
-
-h1 { font-family: "Brush Script MT", cursive; font-size: 30px; margin-bottom: 20px; }
-.message { font-size: 16px; line-height: 1.8; margin-bottom: 25px; }
-h2 { font-size: 20px; margin-bottom: 20px; }
-
-/* Buttons */
-.buttons { position: relative; height: 70px; }
-button {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 28px;
-    font-size: 15px;
-    cursor: pointer;
-    touch-action: manipulation;
-}
-#yesBtn { background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white; box-shadow: 0 12px 24px rgba(255,65,108,0.5);}
-#noBtn { background: white; color: #ff4b2b; position: absolute; right: 0; }
-
-/* Signature */
-.signature { margin-top: 25px; font-family: "Brush Script MT", cursive; font-size: 20px; opacity:0.95;}
-.signature span { font-size: 22px; }
-
-#response { margin-top: 18px; font-size: 17px; font-weight: bold; }
+@keyframes fadeIn{from{opacity:0;transform:translateY(30px) scale(0.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+.letter{text-align:center;}
+h1{font-family:"Brush Script MT",cursive;font-size:30px;margin-bottom:20px;}
+.message{font-size:16px;line-height:1.8;margin-bottom:25px;}
+h2{font-size:20px;margin-bottom:20px;}
+.buttons{position:relative;height:70px;}
+button{padding:12px 28px;border:none;border-radius:28px;font-size:15px;cursor:pointer;touch-action:manipulation;}
+#yesBtn{background:linear-gradient(135deg,#ff416c,#ff4b2b);color:white;box-shadow:0 12px 24px rgba(255,65,108,0.5);}
+#noBtn{background:white;color:#ff4b2b;position:absolute;right:0;}
+.signature{margin-top:25px;font-family:"Brush Script MT",cursive;font-size:20px;opacity:0.95;}
+.signature span{font-size:22px;}
+#response{margin-top:18px;font-size:17px;font-weight:bold;}
 
 /* Final page */
-.final-page {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    animation: fadeIn 1.2s ease forwards;
-    overflow-y: auto;
-}
-
-.final-content {
-    text-align: center;
-    color: white;
-    max-width: 95%;
-}
+.final-page{display:none;position:fixed;inset:0;background:radial-gradient(circle at top,#ff9a9e,#fad0c4);justify-content:center;align-items:center;padding:15px;animation:fadeIn 1.2s ease forwards;overflow-y:auto;}
+.final-content{text-align:center;color:white;max-width:95%;}
 
 /* Slideshow */
-.slideshow {
-    width: 90%;
-    max-width: 360px;
-    height: 380px;
-    margin: 20px auto;
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 18px 38px rgba(0,0,0,0.35);
-    background: rgba(255,255,255,0.05);
+.slideshow{width:90%;max-width:360px;height:380px;margin:20px auto;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 18px 38px rgba(0,0,0,0.35);background:rgba(255,255,255,0.05);}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;display:flex;justify-content:center;align-items:center;overflow:hidden;}
+.slide.active{opacity:1;}
+.slide img,.slide video{width:100%;height:100%;object-fit:cover;transition:transform 20s ease;}
+.slide.active img,.slide.active video{transform:scale(1.1);}
+.final-slide-text{font-size:20px;text-align:center;padding:18px;color:#fff;font-family:"Brush Script MT",cursive;}
+.slide-caption{text-align:center;font-size:14px;margin-top:10px;color:#fff;font-style:italic;}
+
+/* Word rain */
+@keyframes fallWord{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(120vh) rotate(360deg);opacity:0;}}
+.falling-word{font-family:"Courier New", Courier, monospace;pointer-events:none;}
+
+/* Spicy mode */
+body.spicy::after{content:"";position:fixed;inset:0;background:rgba(255,0,0,0.2);animation:pulse 1s infinite alternate;pointer-events:none;}
+@keyframes pulse{0%{opacity:0.2;}100%{opacity:0.5;}}
+
+/* Whisper overlay */
+#whisperOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);color:white;z-index:9999;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px;}
+.whisper-text{font-family:'Dancing Script', cursive;;font-size:22px;line-height:1.5;margin-bottom:20px;}
+.whisper-hint{font-size:14px;opacity:0.6;}
+
+/* Spicy button */
+.spicy-button{
+    position:fixed; bottom:15px; right:15px;
+    background:rgba(255,0,80,0.3);
+    border:none;border-radius:50%;
+    width:50px;height:50px;
+    cursor:pointer; z-index:9999;
+    font-size:20px; color:white;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 0.2s;
 }
-
-/* Each slide */
-.slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.slide.active { opacity: 1; }
-
-/* Images & videos: Ken Burns effect */
-.slide img,
-.slide video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 20s ease;
-}
-.slide.active img,
-.slide.active video { transform: scale(1.1); }
-
-/* Final text slide */
-.final-slide-text {
-    font-size: 20px;
-    text-align: center;
-    padding: 18px;
-    color: #fff;
-    font-family: "Brush Script MT", cursive;
-}
-
-/* Slide captions */
-.slide-caption {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 10px;
-    color: #fff;
-    font-style: italic;
-}
-
-/* Mobile responsive tweaks */
-@media screen and (max-width: 480px) {
-    h1 { font-size: 26px; }
-    h2 { font-size: 18px; }
-    .message { font-size: 15px; line-height:1.6; }
-    .signature { font-size: 18px; }
-    .signature span { font-size: 20px; }
-    .slideshow { height: 300px; max-width: 280px; }
-    .final-slide-text { font-size: 18px; padding: 14px; }
-    .slide-caption { font-size: 13px; }
-    button { font-size: 14px; padding: 10px 22px; }
-}
-
-@keyframes fallWord {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
-}
-
-.falling-word {
-    font-family: "Courier New", Courier, monospace; /* Print-style font */
-    pointer-events: none;
-}
-
-
