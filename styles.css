@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    font-family: "Georgia", serif;
+}
+
+.floating-hearts::before {
+    content: "💖 💕 💘 💝 ❤️";
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -10%;
+    font-size: 28px;
+    animation: floatDown 7s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatDown {
+    to {
+        transform: translateY(120vh);
+        opacity: 0;
+    }
+}
+
+.envelope {
+    width: 90%;
+    max-width: 440px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 26px;
+    padding: 38px;
+    box-shadow: 0 25px 55px rgba(0,0,0,0.25);
+    animation: fadeIn 1.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(30px) scale(0.95);}
+    to {opacity:1; transform: translateY(0) scale(1);}
+}
+
+.letter { text-align: center; }
+
+h1 { font-family: "Brush Script MT", cursive; font-size: 30px; margin-bottom: 20px; }
+.message { font-size:16px; line-height:1.9; margin-bottom:30px; }
+h2 { font-size:21px; margin-bottom:24px; }
+
+.buttons { position: relative; height: 80px; }
+button {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#yesBtn { background: linear-gradient(135deg, #ff416c, #ff4b2b); color:white; box-shadow:0 12px 24px rgba(255,65,108,0.5);}
+#noBtn { background:white; color:#ff4b2b; position:absolute; right:0; }
+
+.signature { margin-top:28px; font-family:"Brush Script MT", cursive; font-size:20px; opacity:0.95; }
+.signature span { font-size:22px; }
+#response { margin-top:20px; font-size:18px; font-weight:bold; }
+
+.final-page {
+    display:none;
+    position:fixed;
+    inset:0;
+    background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+    justify-content:center;
+    align-items:center;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.final-content { text-align:center; padding:40px; color:white; }
+
+/* Slideshow */
+.slideshow {
+    width: 320px;
+    height: 420px;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    background: rgba(255,255,255,0.05);
+}
+.slide { position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease-in-out; display:flex; justify-content:center; align-items:center; overflow:hidden;}
+.slide.active { opacity:1; }
+.slide img, .slide video { width:100%; height:100%; object-fit:cover; transition: transform 20s ease;}
+.slide.active img, .slide.active video { transform: scale(1.1); }
+
+.final-slide-text { font-size:22px; text-align:center; padding:20px; color:#fff; font-family:"Brush Script MT", cursive; }
+.slide-caption { text-align:center; font-size:16px; margin-top:12px; color:#fff; font-style:italic; }
