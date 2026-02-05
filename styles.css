@@ -159,3 +159,15 @@ button {
     .slide-caption { font-size: 13px; }
     button { font-size: 14px; padding: 10px 22px; }
 }
+
+@keyframes fallWord {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+
+.falling-word {
+    font-family: "Courier New", Courier, monospace; /* Print-style font */
+    pointer-events: none;
+}
+
+
